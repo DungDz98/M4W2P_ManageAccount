@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<a href="/">Back</a>
+<form action="create" method="post" th:object="${account}">
+    <fieldset>
+       <div><label>Tên đăng nhập</label>
+        <input type="text" th:field="*{username}">
+        <div style="color: darkred;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+       </div>
+        <div><label>Mật khẩu</label>
+        <input type="password" th:field="*{password}">
+        <div style="color: darkred;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+        <div><label>Tên</label>
+        <input type="date" th:field="*{createDate}">
+            <div style="color: darkred;" th:if="${#fields.hasErrors('createDate')}" th:errors="*{createDate}"></div>
+        </div>
+        <div><input type="submit" value="Create"></div>
+    </fieldset>
+</form>
+</body>
+</html>

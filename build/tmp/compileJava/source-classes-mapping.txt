@@ -1,0 +1,16 @@
+model/Role.java
+ model.Role
+repository/IAccountRepository.java
+ repository.IAccountRepository
+configuration/AppInitializer.java
+ configuration.AppInitializer
+service/AccountService.java
+ service.AccountService
+configuration/AppConfiguration.java
+ configuration.AppConfiguration
+controller/AccountController.java
+ controller.AccountController
+model/Account.java
+ model.Account
+service/IAccountService.java
+ service.IAccountService

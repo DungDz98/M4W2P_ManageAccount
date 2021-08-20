@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+    <table style="border: 1px solid black" cellpadding="10" cellspacing="0">
+        <tr><a href="create">Create</a></tr>
+        <tr>
+            <form>
+            <td colspan="2"><input type="text" name="search"></td>
+            <td><input type="submit" value="search"></td>
+            </form>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Tên tài khoản</th>
+            <th>Mật khẩu</th>
+            <th>Ngày tạo</th>
+            <th colspan="2">Tùy chọn</th>
+        </tr>
+        <tr th:each="a : ${accountList}">
+            <td th:text="${a.getIdtk()}"></td>
+            <td th:text="${a.getUsername()}"></td>
+            <td th:text="${a.getPassword()}"></td>
+            <td th:text="${a.getCreateDate()}"></td>
+            <td><a th:href="@{delete(id=${a.getIdtk()})}">Delete</a></td>
+            <td><a th:href="@{edit(id=${a.getIdtk()})}">Edit</a></td>
+        </tr>
+        <tr>
+            <td th:if="${accountList.size > 0}" colspan="6" style="text-align: right;">
+                <a th:if="${accountList.hasPrevious()}" th:href="@{/(page=${accountList.number - 1})}">Previous</a>
+                <span th:text="${accountList.number + 1}"></span> trên <span th:text="${accountList.totalPages}"></span>
+                <a th:if="${accountList.hasNext()}" th:href="@{/(page=${accountList.number + 1})}">Next</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

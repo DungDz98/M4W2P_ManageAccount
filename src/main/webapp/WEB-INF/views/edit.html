@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<a href="/">Back</a>
+<form method="post" th:object="${account}">
+    <fieldset>
+        <input type="hidden" th:field="*{idtk}">
+        <label>Tên đăng nhập</label>
+        <input type="text" th:field="*{username}">
+        <label>Mật khẩu</label>
+        <input type="password" th:field="*{password}">
+        <label>Tên</label>
+        <input type="date" th:field="*{createDate}">
+        <input type="submit" value="Edit">
+    </fieldset>
+</form>
+</body>
+</html>
